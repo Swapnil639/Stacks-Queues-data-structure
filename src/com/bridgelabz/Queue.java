@@ -5,22 +5,40 @@ public class Queue <E> {
     Node<E> front;
     Node<E> newNode;
 
-    public void enqueue(E value) {
+    int size = 0;
+
+    public void enqueue(E value){
+        size++;
         newNode = new Node(value);
-        if (rear == null && front == null) {
+        if(rear == null &&  front == null){
             rear = newNode;
-        } else {
+        }else{
             front.next = newNode;
         }
         front = newNode;
     }
-    public boolean displayQueue(){
-        Node currentNode = rear;
-        while (currentNode!= null){
-            System.out.println(currentNode.key + " ");
-            currentNode = currentNode.next;
+
+    public void dequeue(){
+        Node<E> tempNode = rear;
+        E value;
+        while(tempNode != null){
+            value = tempNode.getKey();
+            System.out.print(value+" ");
+            tempNode = tempNode.next;
         }
-        return false;
+        System.out.println();
+    }
+    public int size(){
+        return this.size;
     }
 
+    public boolean isEmpty(){
+        boolean flag = false;
+        if(this.size() == 0){
+            flag = true;
+        }else{
+            flag = false;
+        }
+        return flag;
+    }
 }

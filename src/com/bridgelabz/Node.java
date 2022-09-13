@@ -1,6 +1,6 @@
 package com.bridgelabz;
 
-public class Node <E>{
+public class Node <E> {
     E key;
     Node<E> next;
 

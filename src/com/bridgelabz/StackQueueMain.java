@@ -9,6 +9,8 @@ public class StackQueueMain {
         queue.enqueue(56);
         queue.enqueue(90);
         queue.enqueue(11);
-        System.out.println(queue.displayQueue());
+        System.out.println("Size of queue "+queue.size());
+        System.out.println("Queue is empty? "+queue.isEmpty());
+        queue.dequeue();
     }
 }
