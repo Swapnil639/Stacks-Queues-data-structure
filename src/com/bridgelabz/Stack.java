@@ -6,21 +6,47 @@ public class Stack<E> {
     Node<E> newNode;
     int size = 0;
 
-    public void push(E value) {
+    public void push(E value){
+        size++;
         newNode = new Node<>(value);
-        if (bottom == null && top == null) {
+        if(bottom == null && top == null){
             top = newNode;
-        } else {
+        }else{
             newNode.next = bottom;
         }
         bottom = newNode;
     }
 
-    public void displayStack() {
-        Node current = bottom;
-        while (current != null) {
-            System.out.print(current.key + "->");
-            current = current.next;
+    public E pop(){
+        Node<E> currentNode = bottom;
+        E value = null;
+        if(currentNode != null){
+            value = currentNode.getKey();
+            return value;
         }
+        return value;
+    }
+
+    public void popStack(){
+        Node<E> tempNode = bottom;
+        E value;
+        while(tempNode != null){
+            value = tempNode.getKey();
+            System.out.print(value+" ");
+            tempNode = tempNode.next;
+        }
+    }
+    public int size(){
+        return this.size;
+    }
+
+    public boolean isEmpty(){
+        boolean flag = false;
+        if(this.size() == 0){
+            flag = true;
+        }else{
+            flag = false;
+        }
+        return flag;
     }
 }
