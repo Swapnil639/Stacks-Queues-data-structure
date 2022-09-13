@@ -1,5 +1,10 @@
 package com.bridgelabz;
 
-public class Node {
+public class Node <T>{
+    T key;
+    Node<T> next;
 
+    public Node(T key) {
+        this.key = key;
+    }
 }
